@@ -22,5 +22,8 @@ RUN cd /tmp \
     && cd .. \
     && rm -rf cmake*
 
+ENV CC clang-5.0
+ENV CXX clang++-5.0
+
 RUN mkdir /app
 WORKDIR /app
