@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt-get update --fix-missing \
 &&  apt-get upgrade -y \
-&&  apt-get install -y wget software-properties-common make build-essential clang-tidy \
+&&  apt-get install -y wget software-properties-common make build-essential clang-tidy iwyu \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
