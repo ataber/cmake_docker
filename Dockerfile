@@ -12,9 +12,11 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ARG CMAKE_VERSION=3.12.3
+ARG CMAKE_MAJOR_VERSION=3.11
+ARG CMAKE_MINOR_VERSION=3
+ARG CMAKE_VERSION=$CMAKE_MAJOR_VERSION.CMAKE_MINOR_VERSION
 RUN cd /tmp \
-    && wget https://cmake.org/files/v3.11/cmake-$CMAKE_VERSION.tar.gz \
+    && wget https://cmake.org/files/v$CMAKE_MAJOR_VERSION/cmake-$CMAKE_VERSION.tar.gz \
     && tar xf cmake-$CMAKE_VERSION.tar.gz \
     && cd cmake-$CMAKE_VERSION \
     && ./bootstrap \
