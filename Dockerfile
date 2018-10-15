@@ -12,7 +12,7 @@ RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ARG CMAKE_VERSION 3.12.3
+ARG CMAKE_VERSION=3.12.3
 RUN cd /tmp \
     && wget https://cmake.org/files/v3.11/cmake-$CMAKE_VERSION.tar.gz \
     && tar xf cmake-$CMAKE_VERSION.tar.gz \
