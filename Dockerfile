@@ -2,7 +2,15 @@ FROM ubuntu
 
 RUN apt-get update --fix-missing \
 &&  apt-get upgrade -y \
-&&  apt-get install -y wget software-properties-common make build-essential clang-tidy iwyu cppcheck \
+&&  apt-get install -y wget \
+    software-properties-common \
+    make \
+    build-essential \
+    clang-tidy \ 
+    iwyu \
+    cppcheck \
+    libopenmpi-dev \
+    openmpi-bin \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - && \
@@ -27,6 +35,8 @@ RUN cd /tmp \
 
 ENV CC clang-5.0
 ENV CXX clang++-5.0
+ENV MPI_C mpicc
+ENV MPI_CXX mpicxx
 
 RUN mkdir /app
 WORKDIR /app
