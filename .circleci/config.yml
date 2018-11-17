@@ -24,6 +24,7 @@ jobs:
           name: Deploy image to Docker Hub
           command: |
             docker login --username ${DOCKER_USER} --password ${DOCKER_PASSWORD}
-            if [[ ${CIRCLE_BRANCH} == "master"]]; \
+            if [[ ${CIRCLE_BRANCH} == "master" ]]; \
             then docker push ataber/cmake; \
-            else docker push ataber/cmake:${CIRCLE_BRANCH}; fi
+            else docker tag ataber/cmake ataber/cmake:${CIRCLE_BRANCH} && \
+                 docker push ataber/cmake:${CIRCLE_BRANCH}; fi
