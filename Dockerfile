@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:xenial
 
 RUN apt-get update --fix-missing \
 &&  apt-get upgrade -y \
@@ -6,7 +6,7 @@ RUN apt-get update --fix-missing \
     software-properties-common \
     make \
     build-essential \
-    clang-tidy \ 
+    clang-tidy \
     iwyu \
     cppcheck \
     libopenmpi-dev \
